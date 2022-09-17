@@ -1,0 +1,36 @@
+{
+    "name": "b2b-demo-frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev -p 5531",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@tanstack/react-query": "^4.3.4",
+        "@tanstack/react-table": "^8.5.13",
+        "axios": "^0.27.2",
+        "bootstrap": "^5.2.1",
+        "clsx": "^1.2.1",
+        "formik": "^2.2.9",
+        "next": "12.3.0",
+        "react": "18.2.0",
+        "react-bootstrap": "^2.5.0",
+        "react-dom": "18.2.0",
+        "react-feather": "^2.0.10",
+        "react-indiana-drag-scroll": "^2.2.0",
+        "react-toastify": "^9.0.8",
+        "yup": "^1.0.0-beta.7"
+    },
+    "devDependencies": {
+        "@types/node": "18.7.17",
+        "@types/react": "18.0.19",
+        "@types/react-dom": "18.0.6",
+        "eslint": "8.23.1",
+        "eslint-config-next": "12.3.0",
+        "sass": "^1.54.9",
+        "typescript": "4.8.3"
+    }
+}
