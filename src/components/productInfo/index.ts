@@ -1,3 +1,3 @@
-import ProductInfo from './Productinfo'
+import ProductInfo from './ProductInfo'
 
 export default ProductInfo
