@@ -7,6 +7,9 @@ const nextConfig = {
         defaultLocale: 'en',
         localeDetection: true,
     },
+    images: {
+        domains: ['cdn.hipicon.com'],
+    },
 }
 
 module.exports = nextConfig

@@ -19,7 +19,7 @@ const AuthGuard = ({ children }: Props) => {
             return router.push('/sign-in')
         }
         setChecked(true)
-    }, [data, error, router.isReady, status])
+    }, [data, error, status, router])
 
     React.useEffect(() => {
         navigate()

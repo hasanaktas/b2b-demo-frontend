@@ -5,7 +5,7 @@ import { Button, Form, Container, Spinner } from 'react-bootstrap'
 import * as yup from 'yup'
 import clsx from 'clsx'
 import { useAuthSignInMutation } from '@/hooks'
-import { GuestGuard } from '@/components'
+import { GuestGuard, MainLayout, Page } from '@/components'
 import Brand from '@/components/brand'
 
 type LoginForm = {
@@ -29,16 +29,19 @@ const AdminSignInPage: NextPageExtended = () => {
         onSubmit: (values, helpers) => handleSubmit(values, helpers),
     })
 
-    const handleSubmit = React.useCallback(async (values: LoginForm, helpers: FormikHelpers<LoginForm>) => {
-        try {
-            await mutation.mutateAsync(values)
-        } catch (error) {
-            helpers.setSubmitting(false)
-        }
-    }, [])
+    const handleSubmit = React.useCallback(
+        async (values: LoginForm, helpers: FormikHelpers<LoginForm>) => {
+            try {
+                await mutation.mutateAsync(values)
+            } catch (error) {
+                helpers.setSubmitting(false)
+            }
+        },
+        [mutation]
+    )
 
     return (
-        <Container className="my-4">
+        <Page maxWidth={600}>
             <div className="bg-white p-5 rounded-2 shadow-sm">
                 <Brand />
                 <Form onSubmit={formik.handleSubmit} noValidate>
@@ -89,10 +92,14 @@ const AdminSignInPage: NextPageExtended = () => {
                     </Button>
                 </Form>
             </div>
-        </Container>
+        </Page>
     )
 }
 
-AdminSignInPage.getLayout = (page) => <GuestGuard>{page}</GuestGuard>
+AdminSignInPage.getLayout = (page) => (
+    <GuestGuard>
+        <MainLayout disableNavigation>{page}</MainLayout>
+    </GuestGuard>
+)
 
 export default AdminSignInPage

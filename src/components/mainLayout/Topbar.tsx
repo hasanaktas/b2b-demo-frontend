@@ -2,7 +2,10 @@ import { useTranslation } from '@/hooks'
 import * as React from 'react'
 import { Container, Navbar } from 'react-bootstrap'
 
-const Topbar = () => {
+type Props = {
+    disableNavigation?: boolean
+}
+const Topbar = ({ disableNavigation }: Props) => {
     const { t } = useTranslation()
     const sections = React.useMemo<string[]>(() => [t.common.fashion, t.common.electronic, t.common.living], [t])
 
@@ -11,16 +14,18 @@ const Topbar = () => {
             <Container className="d-flex justify-content-center align-items-center text-white" style={{ height: 40 }}>
                 <span className="mb-2"> B2B App</span>
             </Container>
-            <div
-                className="bg-white d-flex justify-content-center align-items-center gap-2"
-                style={{ height: 50, width: '100%' }}
-            >
-                {sections.map((section) => (
-                    <button className="btn btn-light" key={section}>
-                        {section}
-                    </button>
-                ))}
-            </div>
+            {!disableNavigation && (
+                <div
+                    className="bg-white d-flex justify-content-center align-items-center gap-2"
+                    style={{ height: 50, width: '100%' }}
+                >
+                    {sections.map((section) => (
+                        <button className="btn btn-light" key={section}>
+                            {section}
+                        </button>
+                    ))}
+                </div>
+            )}
         </Navbar>
     )
 }

@@ -4,12 +4,13 @@ import { Container, Spinner } from 'react-bootstrap'
 type Props = {
     children: React.ReactNode
     loading?: boolean
+    maxWidth?: number
 }
 
-const Page = ({ children, loading }: Props) => {
+const Page = ({ children, loading, maxWidth = 1140 }: Props) => {
     return (
         <main className="py-4 position-relative flex-grow-1 ">
-            <Container>{children}</Container>
+            <Container style={{ maxWidth }}>{children}</Container>
             {loading && (
                 <div className="position-absolute top-0 start-0 end-0 bottom-0  d-flex justify-content-center align-items-center">
                     <div className="w-100 h-100 bg-white position-absolute opacity-50" />

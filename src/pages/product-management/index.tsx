@@ -5,6 +5,7 @@ import { NextPageExtended, Product } from '@/types'
 import { ColumnDef } from '@tanstack/react-table'
 import Link from 'next/link'
 import { Link2 as Link2Icon } from 'react-feather'
+import Image from 'next/image'
 const AdminProductManagementPage: NextPageExtended = () => {
     const { data: products, isLoading } = useProducts()
     const { t } = useTranslation()
@@ -27,7 +28,12 @@ const AdminProductManagementPage: NextPageExtended = () => {
                 cell: (params) => {
                     return (
                         <div>
-                            <img src={params.row.original.imageURLs[0]} style={{ width: 40, height: 40 }} />
+                            <Image
+                                alt={params.row.original.name}
+                                width={40}
+                                height={40}
+                                src={params.row.original.imageURLs[0]}
+                            />
                         </div>
                     )
                 },

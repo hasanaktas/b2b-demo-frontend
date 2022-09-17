@@ -1,4 +1,5 @@
 import { Product } from '@/types'
+import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
@@ -17,11 +18,8 @@ const SimilarProducts = ({ products }: Props) => {
                 {products.map((product) => {
                     return (
                         <Link key={product.id} href={`/products/${product.id}`}>
-                            <a
-                                className="position-relative text-decoration-none text-black"
-                                style={{ width: 300, flexShrink: 0 }}
-                            >
-                                <img src={product.imageURLs[0]} className="w-100 h-auto" />
+                            <a className="position-relative text-decoration-none text-black" style={{ flexShrink: 0 }}>
+                                <Image alt={product.name} src={product.imageURLs[0]} width={300} height={300} />
                                 <div className="position-absolute bottom-0 start-0 end-0 p-2 d-flex flex-column bg-white bg-opacity-25">
                                     <p className="mb-0">{product.name}</p>
                                     <b className="opacity-75">{product.displayPriceText}</b>

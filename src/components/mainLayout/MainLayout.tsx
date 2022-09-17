@@ -5,12 +5,13 @@ import Topbar from './Topbar'
 
 type Props = {
     children: React.ReactNode
+    disableNavigation?: boolean
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, disableNavigation }: Props) => {
     return (
         <>
-            <Topbar />
+            <Topbar disableNavigation={disableNavigation} />
             {children}
             <Footer />
         </>

@@ -17,7 +17,7 @@ const GuestGuard = ({ children }: Props) => {
             return router.replace('/')
         }
         setChecked(true)
-    }, [data, router.isReady, isLoading])
+    }, [data, router, isLoading])
 
     React.useEffect(() => {
         navigate()
